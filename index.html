@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chez François - Gîtes à Conques</title>
+<meta name="description" content="Gîte d'étape aux portes de Conques, à 200 mètres de l'Abbaye de Sainte-Foy.">
+
+<!-- Polices : Fraunces (titres), Nunito Sans (texte), Caveat (signature) -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<!-- Pictos : Phosphor Icons -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+
+<style>
+:root{
+  --vert:#6dbf1f;
+  --vert-fonce:#5aa316;
+  --vert-award:#8bb928;
+  --vert-pale:#f1f8e9;
+  --noir:#1c1c1e;
+  --texte:#3a3a3c;
+  --gris:#6b7280;
+  --clair:#f7f7f7;
+  --clair2:#f4f2f2;
+  --radius:18px;
+  --ombre:0 20px 50px -20px rgba(28,28,30,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--texte);font-size:17px;line-height:1.7;background:#fff}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:1240px;margin:0 auto;padding:0 28px}
+.wide{max-width:1480px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--noir);line-height:1.15}
+
+/* ===== BOUTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:50px;font-weight:700;font-size:15px;letter-spacing:.3px;transition:.25s;border:2px solid transparent;cursor:pointer;white-space:nowrap}
+.btn i{font-size:20px}
+.btn-vert{background:var(--vert);color:#fff}
+.btn-vert:hover{background:var(--vert-fonce);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--noir)}
+
+/* ===== HEADER ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:100;color:#fff}
+
+/* -- Top bar -- */
+.topbar{background:var(--noir);color:#c7c7cc;font-size:14px;height:44px;overflow:hidden;transition:height .35s}
+.topbar .wide{display:flex;align-items:center;justify-content:space-between;height:44px;gap:30px}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.topbar a,.topbar span{display:flex;align-items:center;gap:8px}
+.topbar i{color:var(--vert);font-size:18px}
+.topbar a:hover{color:#fff}
+.topbar .sep{width:1px;height:18px;background:rgba(255,255,255,.15)}
+header.scrolled .topbar{height:0}
+
+/* -- Barre de navigation -- */
+.navbar{padding:18px 0;transition:.35s;background:linear-gradient(rgba(28,28,30,.35),transparent)}
+.navbar .wide{display:flex;align-items:center;justify-content:space-between;gap:40px}
+header.scrolled .navbar{background:#fff;color:var(--noir);padding:10px 0;box-shadow:0 6px 30px rgba(0,0,0,.08)}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.brand svg{width:58px;height:58px;flex-shrink:0}
+.brand-txt strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.1;white-space:nowrap}
+.brand-txt span{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;opacity:.8;white-space:nowrap}
+.nav-links{list-style:none;display:flex;align-items:center;gap:clamp(16px,1.7vw,30px)}
+.nav-links a{display:block;white-space:nowrap;font-size:13px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--vert);transform:scaleX(0);transition:.25s;transform-origin:left}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--vert)}
+.burger{display:none;background:none;border:0;color:inherit;font-size:32px;cursor:pointer}
+.nav-close{display:none}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;padding:200px 0 170px;color:#fff;
+  background:
+    linear-gradient(100deg,rgba(28,28,30,.88) 0%,rgba(28,28,30,.6) 50%,rgba(28,28,30,.25) 100%),
+    url('https://i.postimg.cc/NG7Dn2SQ/conques2-t-lambelin.jpg') center/cover no-repeat;
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:70px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:50px;font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;background:rgba(109,191,31,.18);border:1px solid rgba(109,191,31,.55);color:#cdeeae;margin-bottom:26px}
+.eyebrow i{font-size:16px}
+.hero h1{color:#fff;font-size:clamp(40px,5.2vw,68px);font-weight:600;margin-bottom:26px}
+.hero h1 em{color:var(--vert);font-style:italic;font-weight:400}
+.hero p{font-size:19px;font-weight:300;color:rgba(255,255,255,.9);max-width:600px}
+.signature{font-family:'Caveat',cursive;font-size:40px;color:var(--vert);margin:14px 0 34px;line-height:1}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+
+.portrait{position:relative;justify-self:center;width:min(390px,80vw);aspect-ratio:1}
+.portrait::before{content:"";position:absolute;inset:-20px;border:2px dashed var(--vert);border-radius:50%;animation:tourne 50s linear infinite}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;border-radius:50%;border:8px solid rgba(255,255,255,.95);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.portrait .tag{position:absolute;left:-14px;bottom:30px;display:flex;align-items:center;gap:8px;background:#fff;color:var(--noir);padding:10px 18px;border-radius:50px;font-weight:800;font-size:14px;box-shadow:var(--ombre)}
+.portrait .tag i{color:var(--vert);font-size:22px}
+@keyframes tourne{to{transform:rotate(360deg)}}
+
+/* ===== ATOUTS ===== */
+.atouts{position:relative;z-index:5;margin-top:-90px}
+.atouts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.atout{background:#fff;border-radius:var(--radius);box-shadow:var(--ombre);padding:30px;display:flex;align-items:center;gap:20px;transition:.3s;border-bottom:4px solid transparent}
+.atout:hover{transform:translateY(-6px);border-bottom-color:var(--vert)}
+.atout .ico{flex-shrink:0;width:70px;height:70px;border-radius:20px;background:var(--vert-pale);color:var(--vert);display:grid;place-items:center;font-size:40px}
+.atout h3{font-size:21px;font-weight:600}
+
+/* ===== TITRES DE SECTION ===== */
+.sec-head{text-align:center;max-width:720px;margin:0 auto 56px}
+.sec-head .kicker{display:inline-block;color:var(--vert);font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.sec-head h2{font-size:clamp(30px,3.6vw,46px);font-weight:600}
+.sec-head h2 em{color:var(--vert);font-weight:400}
+
+/* ===== AWARD ===== */
+.award{padding:110px 0 100px}
+.award-card{position:relative;overflow:hidden;display:grid;grid-template-columns:400px 1fr;gap:60px;align-items:center;padding:56px;border-radius:30px;color:#fff;background:linear-gradient(135deg,var(--vert-award),var(--vert))}
+.award-card .deco{position:absolute;right:-40px;top:-40px;font-size:320px;opacity:.1;pointer-events:none}
+.badge-wrap{text-align:center}
+.badge{position:relative;background:#003b95;color:#fff;border-radius:16px;padding:40px 24px 24px;height:300px;text-align:left;transform:rotate(-3deg);box-shadow:0 30px 50px -15px rgba(0,0,0,.45);transition:.4s}
+.badge:hover{transform:rotate(0) scale(1.03)}
+.badge small{font-size:16px}
+.badge h3{color:#fff;font-family:'Nunito Sans',sans-serif;font-size:28px;font-weight:800;margin-top:4px}
+.badge .bk{position:absolute;left:22px;bottom:22px}
+.badge .bk b{font-size:21px;display:block;line-height:1.1}
+.badge .bk span{font-size:14px}
+.badge .score{position:absolute;right:22px;bottom:22px;width:92px;height:92px;background:#006ce4;border-radius:12px 12px 12px 0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.badge .score strong{font-size:40px;line-height:1}
+.badge .score em{font-style:normal;font-size:11px;font-weight:700}
+.badge-wrap figcaption{margin-top:28px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:.9}
+.award-text{position:relative}
+.award-text .quote{font-size:56px;opacity:.6;line-height:1}
+.award-text p{font-size:19px;margin-bottom:18px;font-weight:600}
+.award-text .merci{font-family:'Caveat',cursive;font-size:36px;font-weight:700;line-height:1.2;margin:10px 0 0}
+
+/* ===== GALERIE ===== */
+.galerie{background:var(--clair);padding:100px 0}
+.gallery{display:grid;grid-template-columns:repeat(7,1fr);gap:16px}
+.gallery figure{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;box-shadow:0 10px 25px -12px rgba(0,0,0,.35)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery figcaption{position:absolute;inset:auto 0 0 0;padding:30px 12px 10px;font-size:13px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(28,28,30,.8));opacity:0;transform:translateY(10px);transition:.35s}
+.gallery figure:hover img{transform:scale(1.12)}
+.gallery figure:hover figcaption{opacity:1;transform:none}
+.gallery figure:nth-child(even){margin-top:34px}
+.galerie-cta{text-align:center;margin-top:60px}
+
+/* ===== EQUIPEMENTS ===== */
+.equipements{padding:110px 0}
+.equip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.equip{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:28px 24px;border:1px solid #ececec;border-radius:var(--radius);transition:.3s;font-size:16px;line-height:1.55}
+.equip i{font-size:30px;color:var(--vert);width:60px;height:60px;border-radius:50%;border:2px solid var(--vert);display:grid;place-items:center;transition:.3s}
+.equip:hover{background:var(--vert-pale);border-color:var(--vert)}
+.equip:hover i{background:var(--vert);color:#fff}
+.equip a{color:var(--vert);font-weight:700;border-bottom:1px dashed var(--vert)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--noir);color:#a1a1a6;padding:70px 0 0;font-size:15px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:50px}
+footer .brand{color:#fff;margin-bottom:18px}
+footer h4{color:#fff;font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:16px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a:hover{color:var(--vert)}
+footer .contact li{display:flex;align-items:flex-start;gap:10px}
+footer .contact i{color:var(--vert);font-size:20px;margin-top:2px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;text-align:center;font-size:14px}
+
+/* ===== RETOUR EN HAUT ===== */
+#toTop{position:fixed;right:24px;bottom:24px;width:54px;height:54px;border-radius:50%;border:0;background:var(--vert);color:#fff;font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:200;box-shadow:0 10px 25px rgba(109,191,31,.4);display:grid;place-items:center}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-4px)}
+
+/* ===== ANIMATION D'APPARITION ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1280px){
+  .burger{display:block}
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:300px;background:var(--noir);color:#fff;flex-direction:column;align-items:flex-start;gap:4px;padding:90px 34px;transform:translateX(100%);transition:.35s;box-shadow:-20px 0 50px rgba(0,0,0,.3)}
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:15px;padding:10px 0}
+  .nav-close{display:block;position:absolute;top:22px;right:24px;background:none;border:0;color:#fff;font-size:30px;cursor:pointer}
+  .award-card{grid-template-columns:1fr;padding:40px 30px;gap:50px}
+  .badge-wrap{max-width:400px;margin:0 auto;width:100%}
+  .equip-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(4,1fr)}
+  .gallery figure:nth-child(even){margin-top:0}
+}
+@media(max-width:900px){
+  .topbar-left{display:none}
+  .topbar .wide{justify-content:center}
+  .hero{padding:180px 0 150px}
+  .hero-grid{grid-template-columns:1fr;gap:60px;text-align:center}
+  .hero p{margin:0 auto}
+  .hero-btns{justify-content:center}
+  .atouts-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+}
+@media(max-width:600px){
+  body{font-size:16px}
+  .wide{padding:0 18px}
+  .topbar{font-size:13px}
+  .topbar-right{gap:18px}
+  .topbar .email-txt{display:none}
+  .brand svg{width:48px;height:48px}
+  .brand-txt strong{font-size:18px}
+  .brand-txt span{display:none}
+  .equip-grid{grid-template-columns:1fr}
+  .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+  .gallery figure{flex:0 0 170px;scroll-snap-align:start}
+  .gallery figcaption{opacity:1;transform:none}
+  .badge{height:260px}.badge h3{font-size:23px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="wide">
+      <div class="topbar-left">
+        <span><i class="ph-duotone ph-map-pin"></i> Aux portes de Conques · à 200 m de l'Abbaye Sainte-Foy</span>
+      </div>
+      <div class="topbar-right">
+        <a href="mailto:francois@gite-francois-conques.fr" aria-label="E-mail"><i class="ph ph-envelope-simple"></i><span class="email-txt">francois@gite-francois-conques.fr</span></a>
+        <span class="sep"></span>
+        <a href="tel:+33688702766"><i class="ph ph-phone"></i> 06 88 70 27 66</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="navbar">
+    <div class="wide">
+      <a href="index.html" class="brand" aria-label="Chez François - Accueil">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <path id="arcHaut" d="M 18,50 A 32,32 0 0 1 82,50"/>
+            <path id="arcBas" d="M 14,52 A 36,36 0 0 0 86,52"/>
+          </defs>
+          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="2"/>
+          <text font-family="Arial" font-weight="700" font-size="11" fill="currentColor">
+            <textPath href="#arcHaut" startOffset="50%" text-anchor="middle">Chez François</textPath>
+          </text>
+          <text font-family="Arial" font-weight="700" font-size="11" fill="currentColor" letter-spacing="1">
+            <textPath href="#arcBas" startOffset="50%" text-anchor="middle">CONQUES</textPath>
+          </text>
+          <path d="M30 40 H48 M30 48 H44 M30 56 H40" stroke="var(--vert)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M48 34 V66 H55 Q72 66 72 50 Q72 34 55 34 Z" fill="none" stroke="currentColor" stroke-width="5"/>
+        </svg>
+        <span class="brand-txt"><strong>Chez François</strong><span>Gîtes à Conques</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="menu">
+          <li><button class="nav-close" aria-label="Fermer"><i class="ph ph-x"></i></button></li>
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="espaces-partages.html">Espaces partagés</a></li>
+          <li><a href="gite-goya.html">Gîte Goya</a></li>
+          <li><a href="gite-dali.html">Gîte Dali</a></li>
+          <li><a href="espace-tribu.html">Espace Tribu</a></li>
+          <li><a href="restauration.html">Restauration</a></li>
+          <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Menu"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="eyebrow"><i class="ph-duotone ph-map-pin"></i> Aux portes de Conques</span>
+      <h1>Chez François<br><em>Gîtes à Conques</em></h1>
+      <p>Situé aux portes de Conques, à 200 mètres de l'Abbaye de Sainte-Foy et ses célèbres vitraux de Pierre Soulages, je vous accueille chaleureusement. Le bâtiment est une ancienne gendarmerie, transformé en un gîte d'étape. Au dîner, grillades au barbecue près du grand bananier !</p>
+      <p class="signature">François</p>
+      <div class="hero-btns">
+        <a href="espaces-partages.html" class="btn btn-vert"><i class="ph ph-arrow-right"></i> Découvrir les espaces partagés</a>
+        <a href="tel:+33688702766" class="btn btn-ghost"><i class="ph ph-phone"></i> Appeler François</a>
+      </div>
+    </div>
+
+    <div class="portrait reveal">
+      <img src="https://i.postimg.cc/SxtDr056/francois-et-royce.jpg" alt="François et Royce">
+      <span class="tag"><i class="ph-duotone ph-dog"></i> François &amp; Royce</span>
+    </div>
+  </div>
+</section>
+
+<!-- ATOUTS -->
+<section class="atouts">
+  <div class="container atouts-grid">
+    <div class="atout reveal"><div class="ico"><i class="ph-duotone ph-map-trifold"></i></div><h3>Aux portes de Conques</h3></div>
+    <div class="atout reveal"><div class="ico"><i class="ph-duotone ph-tree"></i></div><h3>Grande cour ombragée</h3></div>
+    <div class="atout reveal"><div class="ico"><i class="ph-duotone ph-car"></i></div><h3>Parking</h3></div>
+  </div>
+</section>
+
+<!-- AWARD BOOKING -->
+<section class="award">
+  <div class="container">
+    <div class="award-card reveal">
+      <i class="ph-duotone ph-trophy deco"></i>
+      <figure class="badge-wrap">
+        <div class="badge">
+          <small>Awarded to</small>
+          <h3>Gîte d'étape Chez François</h3>
+          <div class="bk"><b>Booking.com</b><span>Traveller Review Awards 2024</span></div>
+          <div class="score"><strong>8,6</strong><em>out of 10</em></div>
+        </div>
+        <figcaption>Award 2024 de Booking.com</figcaption>
+      </figure>
+      <div class="award-text">
+        <i class="ph-duotone ph-quotes quote"></i>
+        <p>En 2024, j'ai de nouveau reçu l'award de Booking.com, avec la note de 8.6/10 (encore mieux que l'an dernier).</p>
+        <p>Cette note me tient particulièrement à coeur parce qu'elle récompense mon engagement à vous accueillir avec chaleur dans un cadre agréable.</p>
+        <p class="merci">C'est grâce à vous et vos gentils commentaires : encore 10 000 MERCI !!!!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="galerie">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker">La cour</span>
+      <h2>Un bon moment à l'ombre des <em>platanes</em></h2>
+    </div>
+    <div class="gallery reveal">
+      <figure><img src="https://i.postimg.cc/s1CR1QP7/terrasse-vue-200x200.jpg" alt="Terrasse avec vue"><figcaption>Terrasse avec vue</figcaption></figure>
+      <figure><img src="https://i.postimg.cc/141Z4n0G/facade-200-2-200x200.jpg" alt="Façade du gîte"><figcaption>Façade</figcaption></figure>
+      <figure><img src="https://i.postimg.cc/CdpVdBCj/balcon-200-200x200.jpg" alt="Balcon"><figcaption>Balcon</figcaption></figure>
+      <figure><img src="https://i.postimg.cc/Hj1Cjc00/bassin-200-200x200.jpg" alt="Bassin"><figcaption>Bassin</figcaption></figure>
+      <figure><img src="https://i.postimg.cc/w3Yd3y5c/barbecue-200-1-200x200.jpg" alt="Barbecue"><figcaption>Barbecue</figcaption></figure>
+      <figure><img src="https://i.postimg.cc/YjBwjGNx/repas-ombre-platanes-200-200x200.jpg" alt="Repas à l'ombre des platanes"><figcaption>Repas sous les platanes</figcaption></figure>
+      <figure><img src="https://i.postimg.cc/9zHjzRPY/arrivee-200-1-200x200.jpg" alt="Arrivée au gîte"><figcaption>L'arrivée</figcaption></figure>
+    </div>
+    <div class="galerie-cta reveal">
+      <a href="espaces-partages.html" class="btn btn-vert"><i class="ph ph-arrow-right"></i> Découvrir les espaces partagés</a>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPEMENTS -->
+<section class="equipements">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker">Sur place</span>
+      <h2>Equipements <em>et</em> services</h2>
+    </div>
+    <div class="equip-grid">
+      <div class="equip reveal"><i class="ph ph-device-mobile"></i>Prises pour recharger les portables au mini bar</div>
+      <div class="equip reveal"><i class="ph ph-wifi-high"></i>Accès internet</div>
+      <div class="equip reveal"><i class="ph ph-shower"></i>Linge de toilette fourni</div>
+      <div class="equip reveal"><i class="ph ph-cigarette-slash"></i>Non-fumeur dans tout l'espace intérieur</div>
+      <div class="equip reveal"><i class="ph ph-bed"></i><span>Location de drap (<a href="tarifs.html">voir tarifs</a>)</span></div>
+      <div class="equip reveal"><i class="ph ph-t-shirt"></i><span>Lave-linge (<a href="tarifs.html">voir tarifs</a>)</span></div>
+      <div class="equip reveal"><i class="ph ph-dog"></i>Animaux acceptés</div>
+      <div class="equip reveal"><i class="ph ph-credit-card"></i>Carte bleue - Espèces</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <a href="index.html" class="brand">
+        <span class="brand-txt"><strong>Chez François</strong><span>Gîtes à Conques</span></span>
+      </a>
+      <p>Gîte d'étape aux portes de Conques, à 200 mètres de l'Abbaye de Sainte-Foy.</p>
+    </div>
+    <div>
+      <h4>Le gîte</h4>
+      <ul>
+        <li><a href="espaces-partages.html">Espaces partagés</a></li>
+        <li><a href="gite-goya.html">Gîte Goya</a></li>
+        <li><a href="gite-dali.html">Gîte Dali</a></li>
+        <li><a href="espace-tribu.html">Espace Tribu</a></li>
+        <li><a href="restauration.html">Restauration</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="contact">
+        <li><i class="ph ph-map-pin"></i><span>1 impasse du Guet<br>12320 Conques-en-Rouergue</span></li>
+        <li><i class="ph ph-phone"></i><a href="tel:+33688702766">06 88 70 27 66</a></li>
+        <li><i class="ph ph-envelope-simple"></i><a href="mailto:francois@gite-francois-conques.fr">francois@gite-francois-conques.fr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    © <span id="year"></span> Chez François - Gîtes à Conques · <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Retour en haut"><i class="ph ph-arrow-up"></i></button>
+
+<script>
+// Header : la top bar se replie et le menu devient blanc au défilement
+const header = document.getElementById('header');
+const toTop = document.getElementById('toTop');
+function onScroll(){
+  header.classList.toggle('scrolled', scrollY > 60);
+  toTop.classList.toggle('show', scrollY > 400);
+}
+window.addEventListener('scroll', onScroll); onScroll();
+toTop.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
+
+// Menu mobile
+const menu = document.getElementById('menu');
+document.querySelector('.burger').addEventListener('click', () => menu.classList.add('open'));
+document.querySelector('.nav-close').addEventListener('click', () => menu.classList.remove('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+// Apparition des blocs au défilement
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

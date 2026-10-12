@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espaces partagés - Chez François - Gîtes à Conques</title>
+<meta name="description" content="Accueil et bar, salon cosy, grande salle à manger, cour ombragée, garage à vélos et parking : les espaces partagés du gîte Chez François à Conques.">
+
+<!-- Polices -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<!-- Pictos -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+
+<style>
+:root{
+  --vert:#6dbf1f;
+  --vert-fonce:#5aa316;
+  --vert-award:#8bb928;
+  --vert-pale:#f1f8e9;
+  --noir:#1c1c1e;
+  --texte:#3a3a3c;
+  --gris:#6b7280;
+  --clair:#f7f7f7;
+  --clair2:#f4f2f2;
+  --radius:18px;
+  --ombre:0 20px 50px -20px rgba(28,28,30,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--texte);font-size:17px;line-height:1.7;background:#fff}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:1240px;margin:0 auto;padding:0 28px}
+.wide{max-width:1480px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--noir);line-height:1.15}
+
+/* ===== BOUTONS ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:50px;font-weight:700;font-size:15px;letter-spacing:.3px;transition:.25s;border:2px solid transparent;cursor:pointer;white-space:nowrap}
+.btn i{font-size:20px}
+.btn-vert{background:var(--vert);color:#fff}
+.btn-vert:hover{background:var(--vert-fonce);transform:translateY(-2px)}
+.btn-blanc{background:#fff;color:var(--noir)}
+.btn-blanc:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.25)}
+.booking-logo{font-weight:800;font-size:18px;letter-spacing:-.5px}
+.booking-logo .b{color:#003580}.booking-logo .c{color:#009fe3}
+
+/* ===== HEADER ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:100;color:#fff}
+.topbar{background:var(--noir);color:#c7c7cc;font-size:14px;height:44px;overflow:hidden;transition:height .35s}
+.topbar .wide{display:flex;align-items:center;justify-content:space-between;height:44px;gap:30px}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.topbar a,.topbar span{display:flex;align-items:center;gap:8px}
+.topbar i{color:var(--vert);font-size:18px}
+.topbar a:hover{color:#fff}
+.topbar .sep{width:1px;height:18px;background:rgba(255,255,255,.15)}
+header.scrolled .topbar{height:0}
+.navbar{padding:18px 0;transition:.35s;background:linear-gradient(rgba(28,28,30,.35),transparent)}
+.navbar .wide{display:flex;align-items:center;justify-content:space-between;gap:40px}
+header.scrolled .navbar{background:#fff;color:var(--noir);padding:10px 0;box-shadow:0 6px 30px rgba(0,0,0,.08)}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.brand svg{width:58px;height:58px;flex-shrink:0}
+.brand-txt strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.1;white-space:nowrap}
+.brand-txt span{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;opacity:.8;white-space:nowrap}
+.nav-links{list-style:none;display:flex;align-items:center;gap:clamp(16px,1.7vw,30px)}
+.nav-links a{display:block;white-space:nowrap;font-size:13px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--vert);transform:scaleX(0);transition:.25s;transform-origin:left}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--vert)}
+.burger{display:none;background:none;border:0;color:inherit;font-size:32px;cursor:pointer}
+.nav-close{display:none}
+
+/* ===== BANDEAU DE PAGE ===== */
+.page-hero{
+  position:relative;padding:230px 0 120px;color:#fff;overflow:hidden;
+  background:
+    linear-gradient(100deg,rgba(28,28,30,.9) 0%,rgba(28,28,30,.65) 55%,rgba(28,28,30,.35) 100%),
+    url('https://i.postimg.cc/NG7Dn2SQ/conques2-t-lambelin.jpg') center 40%/cover no-repeat;
+}
+.page-hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:60px;background:#fff;clip-path:ellipse(75% 100% at 50% 100%)}
+.breadcrumb{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.breadcrumb a{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.75);transition:.2s}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb i{font-size:16px}
+.breadcrumb .current{color:var(--vert)}
+.page-hero h1{color:#fff;font-size:clamp(40px,5.5vw,70px);font-weight:600;margin-bottom:14px}
+.page-hero h1 em{color:var(--vert);font-style:italic;font-weight:400}
+.page-hero p{font-size:19px;font-weight:300;color:rgba(255,255,255,.88);max-width:620px}
+
+/* ===== MISE EN PAGE ===== */
+.page-wrap{padding:70px 0 110px}
+.page-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:50px;align-items:start}
+
+/* ===== TITRES ===== */
+.sec-head{margin-bottom:30px}
+.sec-head .kicker{display:inline-block;color:var(--vert);font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.sec-head h2{font-size:clamp(28px,3vw,40px);font-weight:600}
+.sec-head h2 em{color:var(--vert);font-weight:400}
+
+/* ===== LISTE DES ESPACES ===== */
+.espaces{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:80px}
+.espace-card{background:var(--clair);border-radius:var(--radius);padding:32px 30px;position:relative;overflow:hidden}
+.espace-card .deco{position:absolute;right:-20px;top:-20px;font-size:150px;color:var(--vert);opacity:.07;pointer-events:none}
+.espace-card h3{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:600;margin-bottom:16px}
+.espace-card h3 i{color:var(--vert);font-size:28px}
+.espace-list{list-style:none}
+.espace-list li{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px dashed #e0e0e0;font-weight:600;line-height:1.4}
+.espace-list li:last-child{border-bottom:0}
+.espace-list li i{flex-shrink:0;width:46px;height:46px;border-radius:14px;background:#fff;color:var(--vert);font-size:24px;display:grid;place-items:center;box-shadow:0 6px 16px -8px rgba(0,0,0,.25);transition:.3s}
+.espace-list li:hover i{background:var(--vert);color:#fff;transform:rotate(-6deg)}
+
+/* ===== GALERIE ===== */
+.photos-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.photos-head .sec-head{margin-bottom:0}
+.filtres{display:flex;gap:8px;flex-wrap:wrap}
+.filtre{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:50px;border:2px solid #e5e5e5;background:#fff;font-family:inherit;font-weight:700;font-size:14px;color:var(--texte);cursor:pointer;transition:.25s}
+.filtre i{font-size:17px}
+.filtre:hover{border-color:var(--vert);color:var(--vert)}
+.filtre.active{background:var(--vert);border-color:var(--vert);color:#fff}
+
+/* Grille en flex : la dernière ligne incomplète est centrée */
+.photos{--cols:4;--gap:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--gap)}
+.photos figure{flex:0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;cursor:zoom-in;box-shadow:0 10px 25px -14px rgba(0,0,0,.4);animation:apparait .45s ease}
+.photos figure.hide{display:none}
+.photos img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.photos figure::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(28,28,30,.75));opacity:0;transition:.35s}
+.photos figcaption{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px;opacity:0;transform:translateY(10px);transition:.35s}
+.photos figcaption i{font-size:20px;color:var(--vert)}
+.photos figure:hover img{transform:scale(1.1)}
+.photos figure:hover::after,.photos figure:hover figcaption{opacity:1;transform:none}
+@keyframes apparait{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
+
+/* ===== COLONNE DE DROITE ===== */
+.sidebar{position:sticky;top:110px;display:grid;gap:24px}
+.side-card{border-radius:var(--radius);padding:30px}
+.side-card h3{font-size:22px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.side-card h3 i{color:var(--vert);font-size:26px}
+.side-resa{background:var(--noir);color:#fff;position:relative;overflow:hidden}
+.side-resa::after{content:"";position:absolute;right:-60px;bottom:-60px;width:180px;height:180px;border-radius:50%;background:var(--vert);opacity:.15}
+.side-resa h3{color:#fff}
+.side-resa p{color:rgba(255,255,255,.7);font-size:15px;margin-bottom:20px}
+.side-resa .btn{width:100%;position:relative;z-index:1}
+.side-resa .btn + .btn{margin-top:12px}
+.side-contact{background:#fff;border:1px solid #ececec;box-shadow:var(--ombre)}
+.coord{list-style:none;display:grid;gap:18px}
+.coord li{display:flex;gap:14px;align-items:flex-start}
+.coord .ico{flex-shrink:0;width:46px;height:46px;border-radius:14px;background:var(--vert-pale);color:var(--vert);font-size:22px;display:grid;place-items:center}
+.coord strong{display:block;font-size:13px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--gris);line-height:1.3}
+.coord span,.coord a{font-size:15px;font-weight:600;color:var(--noir);line-height:1.45;word-break:break-word}
+.coord a:hover{color:var(--vert)}
+.map{margin-top:22px;border-radius:14px;overflow:hidden;height:190px;border:0}
+.map iframe{width:100%;height:100%;border:0;display:block}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(18,18,20,.94);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lb-inner{text-align:center}
+.lb-inner img{width:min(520px,82vw);height:auto;max-height:72vh;object-fit:contain;margin:0 auto;border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.lb-cap{color:#fff;margin-top:16px;font-weight:700;display:flex;justify-content:center;gap:16px}
+.lb-cap .count{color:var(--vert)}
+.lb-btn{position:absolute;background:rgba(255,255,255,.1);border:0;color:#fff;width:54px;height:54px;border-radius:50%;font-size:26px;display:grid;place-items:center;cursor:pointer;transition:.25s}
+.lb-btn:hover{background:var(--vert)}
+.lb-close{top:24px;right:24px}
+.lb-prev{left:24px;top:50%;transform:translateY(-50%)}
+.lb-next{right:24px;top:50%;transform:translateY(-50%)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--noir);color:#a1a1a6;padding:70px 0 0;font-size:15px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:50px}
+footer .brand{color:#fff;margin-bottom:18px}
+footer h4{color:#fff;font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:16px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a:hover{color:var(--vert)}
+footer .contact li{display:flex;align-items:flex-start;gap:10px}
+footer .contact i{color:var(--vert);font-size:20px;margin-top:2px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;text-align:center;font-size:14px}
+
+/* ===== RETOUR EN HAUT ===== */
+#toTop{position:fixed;right:24px;bottom:24px;width:54px;height:54px;border-radius:50%;border:0;background:var(--vert);color:#fff;font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:200;box-shadow:0 10px 25px rgba(109,191,31,.4);display:grid;place-items:center}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-4px)}
+
+/* ===== ANIMATION ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1280px){
+  .burger{display:block}
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:300px;background:var(--noir);color:#fff;flex-direction:column;align-items:flex-start;gap:4px;padding:90px 34px;transform:translateX(100%);transition:.35s;box-shadow:-20px 0 50px rgba(0,0,0,.3)}
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:15px;padding:10px 0}
+  .nav-close{display:block;position:absolute;top:22px;right:24px;background:none;border:0;color:#fff;font-size:30px;cursor:pointer}
+}
+@media(max-width:1100px){
+  .page-grid{grid-template-columns:1fr}
+  .sidebar{position:static;grid-template-columns:1fr 1fr}
+  .photos{--cols:3}
+}
+@media(max-width:900px){
+  .topbar-left{display:none}
+  .topbar .wide{justify-content:center}
+  .page-hero{padding:190px 0 100px}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+}
+@media(max-width:700px){
+  .espaces{grid-template-columns:1fr}
+  .sidebar{grid-template-columns:1fr}
+  .photos{--cols:2;--gap:10px}
+  .photos figcaption{opacity:1;transform:none;font-size:12px}
+  .photos figure::after{opacity:1}
+  .lb-prev,.lb-next{top:auto;bottom:24px;transform:none}
+}
+@media(max-width:600px){
+  body{font-size:16px}
+  .wide{padding:0 18px}
+  .topbar{font-size:13px}
+  .topbar-right{gap:18px}
+  .topbar .email-txt{display:none}
+  .brand svg{width:48px;height:48px}
+  .brand-txt strong{font-size:18px}
+  .brand-txt span{display:none}
+  .espace-card{padding:26px 22px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="topbar">
+    <div class="wide">
+      <div class="topbar-left">
+        <span><i class="ph-duotone ph-map-pin"></i> Aux portes de Conques · à 200 m de l'Abbaye Sainte-Foy</span>
+      </div>
+      <div class="topbar-right">
+        <a href="mailto:francois@gite-francois-conques.fr" aria-label="E-mail"><i class="ph ph-envelope-simple"></i><span class="email-txt">francois@gite-francois-conques.fr</span></a>
+        <span class="sep"></span>
+        <a href="tel:+33688702766"><i class="ph ph-phone"></i> 06 88 70 27 66</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <div class="wide">
+      <a href="index.html" class="brand" aria-label="Chez François - Accueil">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <path id="arcHaut" d="M 18,50 A 32,32 0 0 1 82,50"/>
+            <path id="arcBas" d="M 14,52 A 36,36 0 0 0 86,52"/>
+          </defs>
+          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="2"/>
+          <text font-family="Arial" font-weight="700" font-size="11" fill="currentColor">
+            <textPath href="#arcHaut" startOffset="50%" text-anchor="middle">Chez François</textPath>
+          </text>
+          <text font-family="Arial" font-weight="700" font-size="11" fill="currentColor" letter-spacing="1">
+            <textPath href="#arcBas" startOffset="50%" text-anchor="middle">CONQUES</textPath>
+          </text>
+          <path d="M30 40 H48 M30 48 H44 M30 56 H40" stroke="var(--vert)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M48 34 V66 H55 Q72 66 72 50 Q72 34 55 34 Z" fill="none" stroke="currentColor" stroke-width="5"/>
+        </svg>
+        <span class="brand-txt"><strong>Chez François</strong><span>Gîtes à Conques</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="menu">
+          <li><button class="nav-close" aria-label="Fermer"><i class="ph ph-x"></i></button></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="espaces-partages.html" class="active">Espaces partagés</a></li>
+          <li><a href="gite-goya.html">Gîte Goya</a></li>
+          <li><a href="gite-dali.html">Gîte Dali</a></li>
+          <li><a href="espace-tribu.html">Espace Tribu</a></li>
+          <li><a href="restauration.html">Restauration</a></li>
+          <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Menu"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- BANDEAU DE PAGE -->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html"><i class="ph-duotone ph-house"></i> Accueil</a>
+      <i class="ph ph-caret-right"></i>
+      <span class="current">Espaces partagés</span>
+    </nav>
+    <h1>Espaces <em>partagés</em></h1>
+    <p>Accueil, salon, salle à manger et grande cour ombragée : des lieux pour se retrouver.</p>
+  </div>
+</section>
+
+<!-- CONTENU -->
+<main class="page-wrap">
+  <div class="container page-grid">
+
+    <!-- Colonne principale -->
+    <div>
+      <div class="espaces">
+        <div class="espace-card reveal">
+          <i class="ph-duotone ph-house-line deco"></i>
+          <h3><i class="ph-duotone ph-armchair"></i> À l'intérieur</h3>
+          <ul class="espace-list">
+            <li><i class="ph ph-wine"></i>Espace accueil et bar</li>
+            <li><i class="ph ph-fish"></i>Salon cosy avec aquarium et bibliothèque</li>
+            <li><i class="ph ph-fork-knife"></i>Grande salle à manger</li>
+            <li><i class="ph ph-wheelchair"></i>1 toilette accessible personnes handicapées</li>
+          </ul>
+        </div>
+        <div class="espace-card reveal">
+          <i class="ph-duotone ph-tree deco"></i>
+          <h3><i class="ph-duotone ph-sun"></i> À l'extérieur</h3>
+          <ul class="espace-list">
+            <li><i class="ph ph-tree"></i>Grand espace extérieur ombragé</li>
+            <li><i class="ph ph-horse"></i>Abri pour les ânes</li>
+            <li><i class="ph ph-bicycle"></i>Garage pour vélos</li>
+            <li><i class="ph ph-car"></i>Parking</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="photos-head reveal">
+        <div class="sec-head">
+          <span class="kicker">En images</span>
+          <h2>Découvrez <em>les lieux</em></h2>
+        </div>
+        <div class="filtres">
+          <button class="filtre active" data-filter="tous"><i class="ph ph-squares-four"></i> Tout</button>
+          <button class="filtre" data-filter="int"><i class="ph ph-armchair"></i> Intérieur</button>
+          <button class="filtre" data-filter="ext"><i class="ph ph-sun"></i> Extérieur</button>
+        </div>
+      </div>
+
+      <!-- GALERIE : 17 photos -->
+      <div class="photos reveal">
+        <!-- Intérieur -->
+        <figure data-cat="int"><img src="https://i.postimg.cc/LnTvKX3Q/francois-accueil-200x200.jpg" alt="François à l'accueil" loading="lazy"><figcaption>L'accueil <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="int"><img src="https://i.postimg.cc/DSpg0MDr/bar-2-200x200.jpg" alt="Le bar" loading="lazy"><figcaption>Le bar <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="int"><img src="https://i.postimg.cc/nXSkrP5v/bar-200x200.jpg" alt="Le comptoir du bar" loading="lazy"><figcaption>Le comptoir <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="int"><img src="https://i.postimg.cc/JsYq02gj/salon-200x200.jpg" alt="Le salon" loading="lazy"><figcaption>Le salon <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="int"><img src="https://i.postimg.cc/xXpR847M/salon-2-200x200.jpg" alt="Le salon cosy" loading="lazy"><figcaption>Le coin lecture <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="int"><img src="https://i.postimg.cc/zy2jvcMb/grande-salle-manger-200x200.jpg" alt="La grande salle à manger" loading="lazy"><figcaption>La grande salle à manger <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="int"><img src="https://i.postimg.cc/CRrN5QtD/petite-salle-manger-200x200.jpg" alt="La petite salle à manger" loading="lazy"><figcaption>La petite salle à manger <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+
+        <!-- Extérieur -->
+        <figure data-cat="ext"><img src="https://i.postimg.cc/s1CR1QP7/terrasse-vue-200x200.jpg" alt="Terrasse avec vue" loading="lazy"><figcaption>La terrasse <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/3dB95RFb/vue-200x200.jpg" alt="Vue sur les collines" loading="lazy"><figcaption>La vue <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/w14VMGPR/terrasse-grande-salle-manger-200x200.jpg" alt="Terrasse de la grande salle à manger" loading="lazy"><figcaption>Terrasse de la salle à manger <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/mPpwk5q9/tables-parasols-200x200.jpg" alt="Tables et parasols" loading="lazy"><figcaption>Sous les parasols <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/YjBwjGNx/repas-ombre-platanes-200-200x200.jpg" alt="Repas à l'ombre des platanes" loading="lazy"><figcaption>Repas sous les platanes <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/w3Yd3y5c/barbecue-200-1-200x200.jpg" alt="Le barbecue" loading="lazy"><figcaption>Le barbecue <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/Hj1Cjc00/bassin-200-200x200.jpg" alt="Le bassin" loading="lazy"><figcaption>Le bassin <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/9zHjzRPY/arrivee-200-1-200x200.jpg" alt="L'arrivée au gîte" loading="lazy"><figcaption>L'arrivée <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/141Z4n0G/facade-200-2-200x200.jpg" alt="La façade du gîte" loading="lazy"><figcaption>La façade <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+        <figure data-cat="ext"><img src="https://i.postimg.cc/CdpVdBCj/balcon-200-200x200.jpg" alt="Le balcon" loading="lazy"><figcaption>Le balcon <i class="ph ph-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </div>
+
+    <!-- Colonne de droite -->
+    <aside class="sidebar">
+      <div class="side-card side-resa reveal">
+        <h3><i class="ph-duotone ph-calendar-check"></i> Réservation</h3>
+        <p>Réservez en ligne ou appelez directement François.</p>
+        <a href="https://www.booking.com" target="_blank" rel="noopener" class="btn btn-blanc">
+          <span class="booking-logo"><span class="b">Booking</span><span class="c">.com</span></span>
+        </a>
+        <a href="tel:+33688702766" class="btn btn-vert"><i class="ph ph-phone"></i> 06 88 70 27 66</a>
+      </div>
+
+      <div class="side-card side-contact reveal">
+        <h3><i class="ph-duotone ph-address-book"></i> Coordonnées</h3>
+        <ul class="coord">
+          <li><span class="ico"><i class="ph ph-map-pin"></i></span><div><strong>Adresse</strong><span>1 impasse du Guet<br>12320 Conques-en-Rouergue</span></div></li>
+          <li><span class="ico"><i class="ph ph-device-mobile"></i></span><div><strong>Téléphone</strong><a href="tel:+33688702766">06 88 70 27 66</a></div></li>
+          <li><span class="ico"><i class="ph ph-envelope-simple"></i></span><div><strong>E-mail</strong><a href="mailto:francois@gite-francois-conques.fr">francois@gite-francois-conques.fr</a></div></li>
+        </ul>
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=1+impasse+du+Guet,+12320+Conques-en-Rouergue&output=embed" loading="lazy" title="Plan d'accès"></iframe>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <a href="index.html" class="brand">
+        <span class="brand-txt"><strong>Chez François</strong><span>Gîtes à Conques</span></span>
+      </a>
+      <p>Gîte d'étape aux portes de Conques, à 200 mètres de l'Abbaye de Sainte-Foy.</p>
+    </div>
+    <div>
+      <h4>Le gîte</h4>
+      <ul>
+        <li><a href="espaces-partages.html">Espaces partagés</a></li>
+        <li><a href="gite-goya.html">Gîte Goya</a></li>
+        <li><a href="gite-dali.html">Gîte Dali</a></li>
+        <li><a href="espace-tribu.html">Espace Tribu</a></li>
+        <li><a href="restauration.html">Restauration</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="contact">
+        <li><i class="ph ph-map-pin"></i><span>1 impasse du Guet<br>12320 Conques-en-Rouergue</span></li>
+        <li><i class="ph ph-phone"></i><a href="tel:+33688702766">06 88 70 27 66</a></li>
+        <li><i class="ph ph-envelope-simple"></i><a href="mailto:francois@gite-francois-conques.fr">francois@gite-francois-conques.fr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    © <span id="year"></span> Chez François - Gîtes à Conques · <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-btn lb-close" aria-label="Fermer"><i class="ph ph-x"></i></button>
+  <button class="lb-btn lb-prev" aria-label="Photo précédente"><i class="ph ph-caret-left"></i></button>
+  <div class="lb-inner">
+    <img src="" alt="">
+    <div class="lb-cap"><span class="txt"></span><span class="count"></span></div>
+  </div>
+  <button class="lb-btn lb-next" aria-label="Photo suivante"><i class="ph ph-caret-right"></i></button>
+</div>
+
+<button id="toTop" aria-label="Retour en haut"><i class="ph ph-arrow-up"></i></button>
+
+<script>
+// Header + retour en haut
+const header = document.getElementById('header');
+const toTop = document.getElementById('toTop');
+function onScroll(){
+  header.classList.toggle('scrolled', scrollY > 60);
+  toTop.classList.toggle('show', scrollY > 400);
+}
+window.addEventListener('scroll', onScroll); onScroll();
+toTop.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
+
+// Menu mobile
+const menu = document.getElementById('menu');
+document.querySelector('.burger').addEventListener('click', () => menu.classList.add('open'));
+document.querySelector('.nav-close').addEventListener('click', () => menu.classList.remove('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+// Apparition au défilement
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Filtres de la galerie
+const figures = [...document.querySelectorAll('.photos figure')];
+document.querySelectorAll('.filtre').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.filtre').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.dataset.filter;
+  figures.forEach(f => f.classList.toggle('hide', cat !== 'tous' && f.dataset.cat !== cat));
+}));
+
+// Lightbox
+const lb = document.getElementById('lightbox');
+const lbImg = lb.querySelector('img');
+const lbTxt = lb.querySelector('.txt');
+const lbCount = lb.querySelector('.count');
+let visibles = [], current = 0;
+
+function showPhoto(){
+  const f = visibles[current], img = f.querySelector('img');
+  lbImg.src = img.src; lbImg.alt = img.alt;
+  lbTxt.textContent = f.querySelector('figcaption').textContent.trim();
+  lbCount.textContent = (current + 1) + ' / ' + visibles.length;
+}
+function openLb(fig){
+  visibles = figures.filter(f => !f.classList.contains('hide'));
+  current = visibles.indexOf(fig);
+  showPhoto();
+  lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb(){
+  lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+function move(d){ current = (current + d + visibles.length) % visibles.length; showPhoto(); }
+
+figures.forEach(f => f.addEventListener('click', () => openLb(f)));
+lb.querySelector('.lb-close').addEventListener('click', closeLb);
+lb.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); move(-1); });
+lb.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); move(1); });
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') move(-1);
+  if (e.key === 'ArrowRight') move(1);
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
