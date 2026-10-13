@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restauration – Chez François · Gîtes à Conques</title>
+<meta name="description" content="Petit déjeuner et dîner chez François à Conques : grillades au barbecue, fromage et dessert, à 200 m de l'Abbaye Sainte-Foy.">
+
+<!-- Polices -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Pictos Phosphor -->
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+<style>
+:root{
+  --vert:#6dbf1f; --vert-fonce:#5aa316; --vert-award:#8bb928; --vert-pale:#f1f8e9;
+  --noir:#1c1c1e; --texte:#3a3a3c; --gris:#6b7280; --clair:#f7f7f7; --clair2:#f4f2f2;
+  --radius:18px; --ombre:0 10px 30px rgba(0,0,0,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--texte);background:#fff;line-height:1.7;font-size:16px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Fraunces',serif;color:var(--noir);line-height:1.2;font-weight:600}
+em{font-style:italic;color:var(--vert)}
+.wide{max-width:1480px;margin:0 auto;padding:0 28px}
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* ============ HEADER ============ */
+header{position:sticky;top:0;z-index:100;background:#fff;transition:box-shadow .3s}
+header.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.topbar{background:var(--noir);color:#d1d5db;font-size:13.5px;height:44px;overflow:hidden;transition:height .3s}
+header.scrolled .topbar{height:0}
+.topbar .wide{height:44px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.topbar i{color:var(--vert);font-size:16px;vertical-align:-3px;margin-right:6px}
+.tb-right{display:flex;gap:26px}
+.tb-right a:hover{color:#fff}
+.navbar .wide{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand svg{width:50px;height:50px}
+.brand strong{display:block;font-family:'Fraunces',serif;font-size:20px;color:var(--noir);line-height:1.1}
+.brand span{font-size:12.5px;color:var(--gris);letter-spacing:.08em;text-transform:uppercase}
+.menu{display:flex;list-style:none;gap:4px;white-space:nowrap}
+.menu a{display:block;padding:9px 14px;border-radius:999px;font-weight:700;font-size:14.5px;color:var(--noir);transition:.2s}
+.menu a:hover{background:var(--vert-pale);color:var(--vert-fonce)}
+.menu a.active{background:var(--vert);color:#fff}
+.burger{display:none;background:none;border:0;font-size:30px;color:var(--noir);cursor:pointer}
+.overlay{display:none}
+@media(max-width:1280px){
+  .burger{display:block}
+  .menu{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:#fff;flex-direction:column;
+        padding:90px 24px 24px;gap:6px;box-shadow:-10px 0 30px rgba(0,0,0,.15);transition:right .3s;z-index:120}
+  .menu.open{right:0}
+  .menu a{padding:12px 18px}
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:110}
+  .overlay.show{display:block}
+  .menu-close{position:absolute;top:22px;right:22px;font-size:28px;background:none;border:0;cursor:pointer}
+}
+@media(min-width:1281px){.menu-close{display:none}}
+@media(max-width:760px){
+  .topbar .left-txt{display:none}
+  .tb-right{width:100%;justify-content:center;gap:18px}
+  .brand span{display:none}
+}
+
+/* ============ PAGE HERO ============ */
+.page-hero{position:relative;padding:90px 0 80px;color:#fff;
+  background:linear-gradient(120deg,rgba(28,28,30,.85),rgba(90,163,22,.6)),url('https://i.postimg.cc/NG7Dn2SQ/conques2-t-lambelin.jpg') center/cover}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:16px;opacity:.9}
+.breadcrumb a:hover{color:var(--vert)}
+.page-hero h1{color:#fff;font-size:clamp(40px,6vw,64px);font-weight:400}
+.page-hero h1 em{color:#b6f07a}
+.page-hero p{max-width:620px;margin-top:14px;font-size:18px;opacity:.92}
+
+/* ============ LAYOUT ============ */
+.layout{display:grid;grid-template-columns:1fr 340px;gap:48px;padding:70px 24px 90px}
+@media(max-width:1024px){.layout{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--ombre);border:1px solid #eee}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--vert-fonce)}
+
+/* Intro */
+.intro-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.intro-head h2{font-size:clamp(28px,4vw,38px);margin:10px 0 12px}
+.intro-head p{color:var(--gris);font-size:17px}
+
+/* Cartes repas */
+.meals{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:40px}
+@media(max-width:760px){.meals{grid-template-columns:1fr}}
+.meal{position:relative;padding:40px 32px 34px;text-align:center;overflow:hidden;transition:.3s}
+.meal:hover{transform:translateY(-5px);border-color:#dcefc6}
+.meal::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--vert)}
+.meal-ico{width:110px;height:110px;margin:0 auto 18px;border-radius:50%;background:var(--vert-pale);display:grid;place-items:center;transition:.3s}
+.meal:hover .meal-ico{background:var(--vert)}
+.meal-ico i{font-size:58px;color:var(--vert-fonce);transition:.3s}
+.meal:hover .meal-ico i{color:#fff}
+.meal .sig{font-family:'Caveat',cursive;font-size:26px;color:var(--vert-fonce);line-height:1}
+.meal h3{font-size:30px;margin:4px 0 20px}
+.menu-list{list-style:none;text-align:left;border-top:1px dashed #d9d9d9}
+.menu-list li{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px dashed #d9d9d9;font-weight:600}
+.menu-list li i{font-size:22px;color:var(--vert);flex-shrink:0}
+.menu-list li small{margin-left:auto;color:var(--gris);font-weight:600;font-style:italic}
+
+/* Encadré convivialité */
+.highlight{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;background:linear-gradient(135deg,var(--vert-pale),#fff);
+  border:1px solid #dcefc6;border-radius:var(--radius);padding:30px;margin-bottom:40px}
+.hl-badge{width:90px;height:90px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:var(--ombre)}
+.hl-badge i{font-size:46px;color:var(--vert-fonce)}
+.highlight .sig{font-family:'Caveat',cursive;font-size:26px;color:var(--vert-fonce);line-height:1}
+.highlight h3{font-size:24px;margin-bottom:6px}
+.highlight a{color:var(--vert-fonce);font-weight:700;text-decoration:underline}
+@media(max-width:600px){.highlight{grid-template-columns:1fr;text-align:center}.hl-badge{margin:auto}}
+
+/* Blocs + galerie */
+.block{padding:38px;margin-bottom:40px}
+.block-head{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+.block-ico{width:64px;height:64px;border-radius:16px;background:var(--vert);color:#fff;display:grid;place-items:center;flex-shrink:0}
+.block-ico i{font-size:32px}
+.block-head h2{font-size:30px}
+.block-head p{color:var(--gris);font-weight:600}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery button{position:relative;border:0;padding:0;cursor:zoom-in;border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--clair)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery button::after{content:"";position:absolute;inset:0;background:rgba(28,28,30,0);transition:.3s}
+.gallery button .zoom{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:34px;opacity:0;transition:.3s;z-index:1}
+.gallery button:hover img{transform:scale(1.08)}
+.gallery button:hover::after{background:rgba(28,28,30,.35)}
+.gallery button:hover .zoom{opacity:1}
+@media(max-width:520px){.gallery{grid-template-columns:repeat(2,1fr)}.block{padding:24px}}
+
+/* ============ SIDEBAR ============ */
+.sidebar{display:flex;flex-direction:column;gap:28px}
+@media(min-width:1025px){.sidebar>.sticky{position:sticky;top:110px;display:flex;flex-direction:column;gap:28px}}
+.side-card{padding:28px}
+.side-card h3{font-size:22px;margin-bottom:18px}
+.coord{display:flex;gap:14px;margin-bottom:16px}
+.coord .ico{width:44px;height:44px;border-radius:12px;background:var(--vert-pale);display:grid;place-items:center;flex-shrink:0}
+.coord .ico i{font-size:22px;color:var(--vert-fonce)}
+.coord b{display:block;font-size:14px;color:var(--noir)}
+.coord a,.coord span{font-size:14.5px;word-break:break-word}
+.coord a:hover{color:var(--vert-fonce)}
+.map{border-radius:14px;overflow:hidden;margin-top:8px}
+.map iframe{width:100%;height:220px;border:0;display:block}
+.other{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;font-weight:700;transition:.2s}
+.other:hover{background:var(--vert-pale);color:var(--vert-fonce)}
+.other i{font-size:24px;color:var(--vert)}
+.other .ph-arrow-right{margin-left:auto;font-size:18px;color:var(--gris)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--vert);color:#fff;font-weight:800;
+  padding:14px 26px;border-radius:999px;transition:.25s}
+.btn:hover{background:var(--vert-fonce);transform:translateY(-2px)}
+.btn.full{width:100%}
+
+/* ============ FOOTER ============ */
+footer{background:var(--noir);color:#c7c7cc;font-size:15px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:60px 24px 40px}
+footer h4{color:#fff;font-size:19px;margin-bottom:14px}
+footer ul{list-style:none}
+footer li{margin-bottom:8px}
+footer a:hover{color:var(--vert)}
+footer i{color:var(--vert);margin-right:8px;vertical-align:-2px}
+.foot-bottom{border-top:1px solid #333;padding:20px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px}
+@media(max-width:800px){.foot{grid-template-columns:1fr}}
+.to-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--vert);color:#fff;border:0;
+  font-size:22px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:90;box-shadow:var(--ombre)}
+.to-top.show{opacity:1;pointer-events:auto}
+
+/* ============ LIGHTBOX ============ */
+.lightbox{position:fixed;inset:0;background:rgba(10,10,10,.92);z-index:200;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(90vw,900px);max-height:78vh;border-radius:12px;object-fit:contain;min-width:min(80vw,500px)}
+.lb-cap{color:#fff;margin-top:14px;font-weight:600;text-align:center}
+.lb-cap small{display:block;color:#9ca3af;font-weight:400}
+.lb-btn{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:52px;height:52px;border-radius:50%;font-size:26px;cursor:pointer;display:grid;place-items:center}
+.lb-btn:hover{background:var(--vert)}
+.lb-close{top:20px;right:20px}
+.lb-prev{left:20px;top:50%;transform:translateY(-50%)}
+.lb-next{right:20px;top:50%;transform:translateY(-50%)}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="topbar">
+    <div class="wide">
+      <span class="left-txt"><i class="ph ph-map-pin"></i>Aux portes de Conques · à 200 m de l'Abbaye Sainte-Foy</span>
+      <div class="tb-right">
+        <a href="mailto:francois@gite-francois-conques.fr"><i class="ph ph-envelope-simple"></i>francois@gite-francois-conques.fr</a>
+        <a href="tel:+33688702766"><i class="ph ph-phone"></i>06 88 70 27 66</a>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar">
+    <div class="wide">
+      <a href="index.html" class="brand">
+        <svg viewBox="0 0 50 50" aria-hidden="true">
+          <circle cx="25" cy="25" r="23" fill="#fff" stroke="#6dbf1f" stroke-width="3"/>
+          <text x="25" y="31.5" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="18" fill="#1c1c1e">FD</text>
+        </svg>
+        <div><strong>Chez François</strong><span>Gîtes à Conques</span></div>
+      </a>
+      <ul class="menu" id="menu">
+        <button class="menu-close" id="menuClose" aria-label="Fermer"><i class="ph ph-x"></i></button>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="espaces-partages.html">Espaces partagés</a></li>
+        <li><a href="gite-goya.html">Gîte Goya</a></li>
+        <li><a href="gite-dali.html">Gîte Dali</a></li>
+        <li><a href="espace-tribu.html">Espace Tribu</a></li>
+        <li><a href="restauration.html" class="active">Restauration</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu"><i class="ph ph-list"></i></button>
+    </div>
+  </nav>
+</header>
+<div class="overlay" id="overlay"></div>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html"><i class="ph-duotone ph-house"></i> Accueil</a>
+      <i class="ph ph-caret-right"></i>
+      <span>Restauration</span>
+    </div>
+    <h1><em>Restauration</em></h1>
+    <p>Du petit déjeuner au dîner, on s'occupe de vous : il ne vous reste qu'à passer à table.</p>
+  </div>
+</section>
+
+<!-- ================= CONTENU ================= -->
+<div class="container layout">
+  <main>
+
+    <div class="intro-head">
+      <span class="eyebrow"><i class="ph-duotone ph-chef-hat"></i> À table !</span>
+      <h2>Le matin et le soir, <em>chez François</em></h2>
+      <p>Après une journée de visite ou de marche, retrouvez-vous autour d'un bon repas.</p>
+    </div>
+
+    <!-- Les deux repas -->
+    <section class="meals">
+      <article class="card meal">
+        <div class="meal-ico"><i class="ph-duotone ph-coffee"></i></div>
+        <span class="sig">Bien commencer la journée</span>
+        <h3>Petit déjeuner</h3>
+        <ul class="menu-list">
+          <li><i class="ph-duotone ph-bread"></i>Pain et toasts</li>
+          <li><i class="ph-duotone ph-jar"></i>Beurre, confiture, miel</li>
+          <li><i class="ph-duotone ph-coffee"></i>Café, thé, chocolat</li>
+          <li><i class="ph-duotone ph-orange-slice"></i>Jus d'orange</li>
+        </ul>
+      </article>
+
+      <article class="card meal">
+        <div class="meal-ico"><i class="ph-duotone ph-fork-knife"></i></div>
+        <span class="sig">Se retrouver le soir</span>
+        <h3>Dîner</h3>
+        <ul class="menu-list">
+          <li><i class="ph-duotone ph-bowl-food"></i>Entrée</li>
+          <li><i class="ph-duotone ph-fire"></i>Plat<small>grillades au barbecue</small></li>
+          <li><i class="ph-duotone ph-cheese"></i>Fromage</li>
+          <li><i class="ph-duotone ph-cake"></i>Dessert</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Encadré -->
+    <section class="highlight">
+      <div class="hl-badge"><i class="ph-duotone ph-chat-circle-text"></i></div>
+      <div>
+        <span class="sig">Une question sur les repas ?</span>
+        <h3>François vous répond</h3>
+        <p>Appelez le <a href="tel:+33688702766">06 88 70 27 66</a> ou écrivez à <a href="mailto:francois@gite-francois-conques.fr">francois@gite-francois-conques.fr</a>.</p>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="card block">
+      <div class="block-head">
+        <div class="block-ico"><i class="ph-duotone ph-images"></i></div>
+        <div><h2>Où prendre vos repas</h2><p>Dedans ou dehors, selon la météo</p></div>
+      </div>
+      <div class="gallery" id="gallery">
+        <button><img src="https://i.postimg.cc/YjBwjGNx/repas-ombre-platanes-200-200x200.jpg" alt="Repas à l'ombre des platanes" loading="lazy"><span class="zoom"><i class="ph ph-magnifying-glass-plus"></i></span></button>
+        <button><img src="https://i.postimg.cc/w3Yd3y5c/barbecue-200-1-200x200.jpg" alt="Le barbecue" loading="lazy"><span class="zoom"><i class="ph ph-magnifying-glass-plus"></i></span></button>
+        <button><img src="https://i.postimg.cc/zy2jvcMb/grande-salle-manger-200x200.jpg" alt="La grande salle à manger" loading="lazy"><span class="zoom"><i class="ph ph-magnifying-glass-plus"></i></span></button>
+        <button><img src="https://i.postimg.cc/w14VMGPR/terrasse-grande-salle-manger-200x200.jpg" alt="La terrasse de la grande salle à manger" loading="lazy"><span class="zoom"><i class="ph ph-magnifying-glass-plus"></i></span></button>
+        <button><img src="https://i.postimg.cc/mPpwk5q9/tables-parasols-200x200.jpg" alt="Les tables sous les parasols" loading="lazy"><span class="zoom"><i class="ph ph-magnifying-glass-plus"></i></span></button>
+        <button><img src="https://i.postimg.cc/DSpg0MDr/bar-2-200x200.jpg" alt="Le bar" loading="lazy"><span class="zoom"><i class="ph ph-magnifying-glass-plus"></i></span></button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="sticky">
+      <div class="card side-card">
+        <h3>Coordonnées</h3>
+        <div class="coord"><div class="ico"><i class="ph-duotone ph-map-pin"></i></div>
+          <div><b>Adresse</b><span>1 impasse du Guet<br>12320 Conques-en-Rouergue</span></div></div>
+        <div class="coord"><div class="ico"><i class="ph-duotone ph-phone"></i></div>
+          <div><b>Téléphone</b><a href="tel:+33688702766">06 88 70 27 66</a></div></div>
+        <div class="coord"><div class="ico"><i class="ph-duotone ph-envelope-simple"></i></div>
+          <div><b>E-mail</b><a href="mailto:francois@gite-francois-conques.fr">francois@gite-francois-conques.fr</a></div></div>
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=1+impasse+du+Guet,+12320+Conques&output=embed" loading="lazy" title="Plan d'accès"></iframe>
+        </div>
+      </div>
+
+      <div class="card side-card">
+        <h3>À découvrir aussi</h3>
+        <a class="other" href="espaces-partages.html"><i class="ph-duotone ph-armchair"></i>Espaces partagés<i class="ph ph-arrow-right"></i></a>
+        <a class="other" href="gite-goya.html"><i class="ph-duotone ph-house-line"></i>Gîte Goya<i class="ph ph-arrow-right"></i></a>
+        <a class="other" href="gite-dali.html"><i class="ph-duotone ph-house-line"></i>Gîte Dali<i class="ph ph-arrow-right"></i></a>
+        <a class="other" href="espace-tribu.html"><i class="ph-duotone ph-users-three"></i>Espace Tribu<i class="ph ph-arrow-right"></i></a>
+      </div>
+
+      <a href="index.html" class="btn full"><i class="ph ph-arrow-left"></i> Retour à l'accueil</a>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container foot">
+    <div>
+      <h4>Chez François</h4>
+      <p>Gîtes à Conques, aux portes du village, à 200 m de l'Abbaye Sainte-Foy.</p>
+    </div>
+    <div>
+      <h4>Hébergements</h4>
+      <ul>
+        <li><a href="gite-goya.html">Gîte Goya</a></li>
+        <li><a href="gite-dali.html">Gîte Dali</a></li>
+        <li><a href="espace-tribu.html">Espace Tribu</a></li>
+        <li><a href="espaces-partages.html">Espaces partagés</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><i class="ph ph-map-pin"></i>1 impasse du Guet, 12320 Conques</li>
+        <li><i class="ph ph-phone"></i><a href="tel:+33688702766">06 88 70 27 66</a></li>
+        <li><i class="ph ph-envelope-simple"></i><a href="mailto:francois@gite-francois-conques.fr">Nous écrire</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <span>© 2021 – <span id="year"></span> Chez François – Gîtes à Conques. Tous droits réservés.</span>
+    <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Haut de page"><i class="ph ph-arrow-up"></i></button>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Fermer"><i class="ph ph-x"></i></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Précédente"><i class="ph ph-caret-left"></i></button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Suivante"><i class="ph ph-caret-right"></i></button>
+</div>
+
+<script>
+// Année du footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Header au scroll + bouton haut de page
+const header = document.getElementById('header');
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+  toTop.classList.toggle('show', window.scrollY > 500);
+});
+toTop.onclick = () => window.scrollTo({ top: 0 });
+
+// Menu burger
+const menu = document.getElementById('menu'), overlay = document.getElementById('overlay');
+function toggleMenu(open){ menu.classList.toggle('open', open); overlay.classList.toggle('show', open); }
+document.getElementById('burger').onclick = () => toggleMenu(true);
+document.getElementById('menuClose').onclick = () => toggleMenu(false);
+overlay.onclick = () => toggleMenu(false);
+
+// Lightbox
+const items = [...document.querySelectorAll('#gallery button')];
+const photos = items.map(it => it.querySelector('img'));
+const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+let index = 0;
+function show(){
+  const img = photos[index];
+  lbImg.src = img.src; lbImg.alt = img.alt;
+  lbCap.innerHTML = img.alt + '<small>' + (index + 1) + ' / ' + photos.length + '</small>';
+}
+items.forEach((btn, i) => btn.onclick = () => { index = i; show(); lb.classList.add('open'); });
+const close = () => lb.classList.remove('open');
+const next = () => { index = (index + 1) % photos.length; show(); };
+const prev = () => { index = (index - 1 + photos.length) % photos.length; show(); };
+document.getElementById('lbClose').onclick = close;
+document.getElementById('lbNext').onclick = next;
+document.getElementById('lbPrev').onclick = prev;
+lb.onclick = e => { if (e.target === lb) close(); };
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') close();
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+// Glisser du doigt sur mobile
+let x0 = null;
+lb.addEventListener('touchstart', e => x0 = e.touches[0].clientX);
+lb.addEventListener('touchend', e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 50) (dx < 0 ? next : prev)();
+  x0 = null;
+});
+</script>
+</body>
+</html>
